@@ -1,8 +1,8 @@
-# DisasterCare API 🚑
+# DisasterCare API 
 
 DisasterCare adalah sistem backend berbasis **FastAPI** untuk memanajemen respons bencana alam. Platform ini memfasilitasi pendataan bencana, pendaftaran relawan, pembagian tugas lapangan, pengelolaan stok logistik, hingga laporan langsung dari lokasi kejadian.
 
-## 🚀 Teknologi yang Digunakan
+## Teknologi yang Digunakan
 - **Framework:** FastAPI (Python 3.10+)
 - **Database:** MySQL (via XAMPP)
 - **ORM:** SQLAlchemy
@@ -80,15 +80,15 @@ Ini akan otomatis membuat 3 user (Admin, Koordinator, Relawan dengan password `p
 ## 📚 Panduan Integrasi Frontend
 
 Dokumentasi lengkap seluruh Endpoint (beserta tipe data, *request body*, dan *response*) dapat diakses langsung secara interaktif melalui Swagger UI:
-👉 **[http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)**
+**[http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)**
 
-### 🔐 Alur Autentikasi (JWT)
+### Alur Autentikasi (JWT)
 1. Frontend mengirim `email` & `password` via `POST /auth/login`.
 2. Backend mengembalikan `access_token` (JWT).
 3. Frontend **wajib** menyisipkan token ini pada header HTTP untuk setiap *request* yang membutuhkan login:
    `Authorization: Bearer <access_token>`
 
-### 🎭 Role-Based Access Control (RBAC)
+### Role-Based Access Control (RBAC)
 PENTING! Frontend harus menyesuaikan antarmuka UI/UX (menyembunyikan/menampilkan tombol) berdasarkan *Role* user yang sedang login.
 
 | Fitur / Endpoint | Role: Admin | Role: Koordinator | Role: Relawan |
@@ -105,7 +105,3 @@ Saat mendesain halaman Frontend, perhatikan respons *Error 400* (Bad Request) da
 - **Pendaftaran Bencana:** Akan gagal ditolak jika tanggal `end_date` bencana sudah terlewat.
 - **Pengambilan Tugas:** Akan gagal jika kuota `max_volunteers` sudah penuh.
 - **Alokasi Logistik:** Akan gagal jika nilai `quantity` melebihi stok yang ada di gudang (*Insufficient Stock*).
-
----
-
-*Dibuat dengan ❤️ untuk Penanganan Bencana yang Lebih Cepat.*
