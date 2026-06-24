@@ -27,5 +27,5 @@ class User(Base):
     # relasi
     registrations = relationship("Registration", back_populates="user")
     task_assignments = relationship("TaskAssignment", back_populates="user")
-    reports = relationship("Report", back_populates="reporter")
+    reports = relationship("Report", foreign_keys="[Report.reported_by]", back_populates="reporter")
     skills = relationship("VolunteerSkill", back_populates="user", cascade="all, delete-orphan")

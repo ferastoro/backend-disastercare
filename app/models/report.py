@@ -31,4 +31,4 @@ class Report(Base):
 
     # relasi
     disaster = relationship("Disaster", back_populates="reports")
-    reporter = relationship("User", back_populates="reports")
+    reporter = relationship("User", foreign_keys=[reported_by], back_populates="reports")
