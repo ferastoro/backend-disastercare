@@ -13,6 +13,21 @@ class Report(Base):
     content = Column(Text, nullable=False)
     attachments = Column(String(255))
     created_at = Column(DateTime, default=func.now())
+    status = Column(
+        String(30),
+        default="submitted",
+        nullable=False
+    )
+
+    priority = Column(
+        String(30),
+        default="sedang",
+        nullable=False
+    )
+
+    review_notes = Column(Text)
+    reviewed_by = Column(Integer, ForeignKey("users.id"))
+    reviewed_at = Column(DateTime)
 
     # relasi
     disaster = relationship("Disaster", back_populates="reports")

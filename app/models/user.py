@@ -13,8 +13,19 @@ class User(Base):
     role = Column(Enum("relawan", "koordinator", "admin"), nullable=False)
     phone = Column(String(20))
     created_at = Column(DateTime, default=func.now())
-
+    region = Column(String(150))
+    readiness = Column(
+        Enum("aktif", "siaga", "tidak_tersedia"),
+        default="aktif"
+    )
+    availability = Column(String(150))
+    transport = Column(String(100))
+    area = Column(String(200))
+    emergency_contact = Column(String(150))
+    profile_photo = Column(String(255))
+    
     # relasi
     registrations = relationship("Registration", back_populates="user")
     task_assignments = relationship("TaskAssignment", back_populates="user")
     reports = relationship("Report", back_populates="reporter")
+    skills = relationship("VolunteerSkill", back_populates="user", cascade="all, delete-orphan")

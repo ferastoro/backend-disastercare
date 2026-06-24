@@ -19,3 +19,4 @@ class Disaster(Base):
     registrations = relationship("Registration", back_populates="disaster", cascade="all, delete-orphan")
     allocations = relationship("Allocation", back_populates="disaster", cascade="all, delete-orphan")
     reports = relationship("Report", back_populates="disaster", cascade="all, delete-orphan")
+    shelters = relationship("Shelter", back_populates="disaster", cascade="all, delete-orphan")
