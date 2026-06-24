@@ -6,3 +6,7 @@ from .registration import Registration
 from .task_assignment import TaskAssignment
 from .allocation import Allocation
 from .report import Report
+from .shelter import Shelter
+from .shelter_need import ShelterNeed
+from .volunteer_skill import VolunteerSkill
+from .activity_log import ActivityLog
